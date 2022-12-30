@@ -1,9 +1,13 @@
-import './styles/styles.css';
+import "./styles/styles.css";
+import React from "react";
+import GeneralInfo from "./components/GeneralInfo";
 
-import React from 'react';
-
-class App extends React.Component{
-
+class App extends React.Component {
+  render() {
+    return <div>
+        <GeneralInfo />
+    </div>;
+  }
 }
 
 export default App;
