@@ -6,8 +6,7 @@ class Education extends React.Component {
     this.state = {
       education: {
         institution: "",
-        yearsFrom: "",
-        yearsTo: "",
+        years: "",
         major: "",
       },
       educationArray: [],
@@ -35,41 +34,31 @@ class Education extends React.Component {
   render() {
     return (
       <div className="education">
-        <div className="education-header">EDUCATION</div>
         <form className="educationContainer" onSubmit={this.onSubmitForm}>
-          <label htmlFor="institution">Institution:</label>
+          <label htmlFor="institution">Institution: </label>
           <input
             name="institution"
             onClick={this.makeEditable}
             defaultValue={this.state.firstName}
             onChange={this.updateInfo}
-            placeholder="Institution"
+            placeholder="e.g. Harvard University"
           />
-          <label htmlFor="major">Major:</label>
+          <label htmlFor="major">Major: </label>
           <input
             name="major"
             onClick={this.makeEditable}
             defaultValue={this.state.firstName}
             onChange={this.updateInfo}
-            placeholder="Major"
+            placeholder="e.g. Computer Science"
           />
-          <label htmlFor="years">Years:</label>
-          <div className="years">
-            <input
-              name="yearsFrom"
-              onClick={this.makeEditable}
-              defaultValue={this.state.firstName}
-              onChange={this.updateInfo}
-              placeholder="Years From:"
-            />
-            <input
-              name="yearsTo"
-              onClick={this.makeEditable}
-              defaultValue={this.state.firstName}
-              onChange={this.updateInfo}
-              placeholder="Years To:"
-            />
-          </div>
+          <label htmlFor="years">Years: </label>
+          <input
+            name="years"
+            onClick={this.makeEditable}
+            defaultValue={this.state.firstName}
+            onChange={this.updateInfo}
+            placeholder="eg. 2012-2016"
+          />
         </form>
       </div>
     );
