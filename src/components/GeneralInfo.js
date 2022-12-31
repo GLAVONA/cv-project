@@ -1,5 +1,4 @@
 import React from "react";
-import {makeEditable, updateInfo} from '../utilities/utils'
 
 class GeneralInfo extends React.Component {
   constructor() {
