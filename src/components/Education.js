@@ -9,8 +9,6 @@ class Education extends React.Component {
         years: "",
         major: "",
       },
-      educationArray: [],
-      submittable: false,
     };
     this.updateInfo = this.updateInfo.bind(this);
     this.makeEditable = this.makeEditable.bind(this);

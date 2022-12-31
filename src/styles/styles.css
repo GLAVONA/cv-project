@@ -1,66 +1,103 @@
-body{
-    margin: 0;
-    padding: 0;
+body {
+  margin: 0;
+  padding: 0;
 }
 
-#root{
-    width: 50rem;
-    margin: 0 auto;
-    height: 100%;
+#root {
+  width: 50rem;
+  margin: 0 auto;
+  height: 100%;
 }
 
-.app{
-    display: grid;
-    grid-template-rows: 0.2fr 0.6fr 0.2fr;
-    background-color: antiquewhite;
-    box-shadow: 3px 3px 5px gray;
-    justify-content: center;
-    padding-top: 1rem;
+.app {
+  display: grid;
+  grid-template-rows: 0.2fr 0.6fr 0.2fr;
+  background-color: antiquewhite;
+  box-shadow: 3px 3px 5px gray;
+  justify-content: center;
+  padding-top: 1rem;
 }
 
-.app>.header{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    gap: 1rem;
-    flex: 0.3;
+.app > .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.generalInfo{
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr;
+.generalInfo {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
 }
-.generalInfo>*{
-    display: grid;
-    gap: 1rem;
-}
-
-.generalInfo>.names{
-    gap: 0;
+.generalInfo > * {
+  display: grid;
+  gap: 1rem;
 }
 
-.app>.main{
-    border-top: 1px solid black;
-    grid-row: 2/3;
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
+.generalInfo > .names {
+  gap: 0;
 }
 
-.education-header{
-    align-self: center;
+.app > .main {
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.main>button{
-    width: 20%;
-    align-self: center;
+.main > .header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: .5rem;
+  padding-top: .5rem;
+  border-top: 1px solid black;
 }
 
-.educationContainer{
-    display: flex;
-    gap: 0.3rem;
+.main > button {
+  width: 5rem;
+  align-self: center;
+  padding: 0;
+  text-align: center;
+  margin: 0;
 }
-input[name="years"]{
-    flex: 0 1 auto;
+
+.educationContainer {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+input[name="years"] {
+  flex: 0 1 auto;
+}
+
+.workExperienceContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+}
+
+.responsibilities {
+  flex-basis: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  gap: 0.3rem;
+}
+
+.responsibilities > input {
+  flex: 1;
 }
