@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    width: 50vw;
+    margin: 0 auto;
+}
+
+.app{
+    display: grid;
+    grid-template-rows: 0.2fr 0.6fr 0.2fr;
+}
+
+.app>.header{
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 1rem;
+    flex: 0.3;
+}
+
+.generalInfo{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr;
+}
+.generalInfo>*{
+    display: grid;
+    gap: 1rem;
+}
+
+
+.app>.main{
+    grid-row: 2/3;
+}
