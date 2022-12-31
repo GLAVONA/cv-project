@@ -15,7 +15,8 @@ class Photo extends React.Component {
         <img
           src={this.state.photoURL}
           alt="Your Photo"
-          style={{ width: this.state.width }}
+          style={{ width: this.state.width,
+          height: "100%" }}
         />
       </div>
     );
