@@ -1,4 +1,5 @@
 import React from "react";
+import {makeEditable, updateInfo} from '../utilities/utils'
 
 class GeneralInfo extends React.Component {
   constructor() {
@@ -26,6 +27,7 @@ class GeneralInfo extends React.Component {
     });
   }
 
+
   render() {
     return (
       <div className="generalInfo">
@@ -35,12 +37,14 @@ class GeneralInfo extends React.Component {
             onClick={this.makeEditable}
             defaultValue={this.state.firstName}
             onChange={this.updateInfo}
+            placeholder="First name"
           />
           <input
             name="lastName"
             onClick={this.makeEditable}
             defaultValue={this.state.lastName}
             onChange={this.updateInfo}
+            placeholder="Last name"
           />
         </div>
         <div className="additional-info">
@@ -49,6 +53,7 @@ class GeneralInfo extends React.Component {
             onClick={this.makeEditable}
             defaultValue={this.state.phoneNumber}
             onChange={this.updateInfo}
+            placeholder="Phone number"
           />
           <input
             name="email"
@@ -56,12 +61,14 @@ class GeneralInfo extends React.Component {
             onClick={this.makeEditable}
             defaultValue={this.state.email}
             onChange={this.updateInfo}
+            placeholder="Email"
           />
           <input
             name="linkedInURL"
             onClick={this.makeEditable}
             defaultValue={this.state.linkedInURL}
             onChange={this.updateInfo}
+            placeholder="LinedIn URL"
           />
         </div>
       </div>
