@@ -3,27 +3,9 @@ import React from "react";
 class WorkExperience extends React.Component {
   constructor() {
     super();
-    this.state = {
-      companyName: "",
-      position: "",
-      responsibilities: "",
-      dateFrom: "",
-      dateTo: "",
+    this.state={
+
     };
-    this.updateInfo = this.updateInfo.bind(this);
-    this.makeEditable = this.makeEditable.bind(this);
-  }
-
-  makeEditable(e) {
-    e.target.select();
-    e.target.classList.add("edit");
-    console.log(this.state);
-  }
-
-  updateInfo(e) {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
   }
 
   render() {
@@ -34,8 +16,6 @@ class WorkExperience extends React.Component {
             <label htmlFor="companyName">Company Name: </label>
             <input
               name="companyName"
-              onClick={this.makeEditable}
-              onChange={this.updateInfo}
               placeholder="e.g. Microsoft"
             />
           </div>
@@ -43,8 +23,6 @@ class WorkExperience extends React.Component {
             <label htmlFor="position">Position: </label>
             <input
               name="position"
-              onClick={this.makeEditable}
-              onChange={this.updateInfo}
               placeholder="e.g. Account Manager"
             />
           </div>
@@ -52,8 +30,6 @@ class WorkExperience extends React.Component {
             <label htmlFor="responsibilities">Responsibilities: </label>
             <input
               name="responsibilities"
-              onClick={this.makeEditable}
-              onChange={this.updateInfo}
               placeholder="e.g. Managing the key accounts; Preparing sales reports"
             />
           </div>
@@ -61,15 +37,11 @@ class WorkExperience extends React.Component {
             <label htmlFor="dateFrom">Date From: </label>
             <input
               name="dateFrom"
-              onClick={this.makeEditable}
-              onChange={this.updateInfo}
               placeholder="e.g. 10-12-2022"
-            />{" "}
+            />
             <label htmlFor="dateTo">Date To: </label>
             <input
               name="dateTo"
-              onClick={this.makeEditable}
-              onChange={this.updateInfo}
               placeholder="e.g. 06-08-2024"
             />
           </div>
