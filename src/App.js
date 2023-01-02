@@ -1,7 +1,7 @@
 import "./styles/styles.css";
 import React from "react";
 import GeneralInfo from "./components/GeneralInfo";
-import Education from "./components/Education";
+import Education ,{currentIndex} from "./components/Education";
 import Photo from "./components/Photo";
 import WorkExperience from "./components/WorkExperience";
 
@@ -36,7 +36,6 @@ class App extends React.Component {
 //   }
 
   addNewEducation() {
-    console.log(this.state.educationList)
     this.setState({
       ...this.state,
       educationList: this.state.educationList.concat(<Education />),

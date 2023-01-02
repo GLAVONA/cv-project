@@ -1,5 +1,7 @@
 import React from "react";
 
+export let currentIndex = 0;
+
 class Education extends React.Component {
   constructor() {
     super();
@@ -14,8 +16,10 @@ class Education extends React.Component {
     this.makeEditable = this.makeEditable.bind(this);
   }
 
+
   makeEditable(e) {
     e.target.select();
+    currentIndex = Array.from(e.target.parentElement.parentElement.parentElement.children).indexOf(e.target.parentElement.parentElement)-1;
   }
 
 
