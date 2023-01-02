@@ -38,7 +38,6 @@ class App extends React.Component {
               major={educationObject.major}
               years={educationObject.years}
             />;
-            <Education/>
           })}
         </div>
       </div>
