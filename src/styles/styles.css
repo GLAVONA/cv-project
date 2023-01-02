@@ -3,10 +3,11 @@ body {
   padding: 0;
 }
 
-
-html,body,#root{
-    height: 100%;
-    margin: 0;
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
 }
 
 #root {
@@ -16,7 +17,7 @@ html,body,#root{
 
 .app {
   display: grid;
-  grid-template-rows: 0.2fr 0.6fr 0.2fr;
+  grid-template-rows: 0.2fr 0.6fr;
   background-color: antiquewhite;
   box-shadow: 3px 3px 5px gray;
   justify-content: center;
@@ -93,24 +94,31 @@ input[name="years"] {
   align-items: center;
   border-top: 1px solid black;
   width: 100%;
-  flex: 1;
+  padding-top: 0.3rem;
+  min-height: 50px;
 }
 
-.deleteButton {
+.deleteEduButton {
   position: absolute;
   right: -1.7rem;
 }
 
-.workExperienceContainer {
+.deleteWorkButton{
+    position: absolute;
+    top: .3rem;
+    right: .5rem;
+}
+
+.workExperienceForm {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   gap: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid rgba(128, 128, 128, 0.445);
+
 }
 
 .responsibilities {
@@ -125,3 +133,19 @@ input[name="years"] {
 .responsibilities > input {
   flex: 1;
 }
+
+.workExp {
+  padding-top: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid black;
+  flex: 1;
+  margin-top: 2rem;
+}
+
+.workExperienceContainer{
+    position: relative;
+    margin-top: 1rem;
+}
+

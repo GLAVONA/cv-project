@@ -7,10 +7,6 @@ class Education extends React.Component {
 
     };
   }
-  
-  selectText(e){
-    e.target.select();
-  }
 
   render() {
     return (

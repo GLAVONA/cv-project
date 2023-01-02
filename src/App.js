@@ -10,12 +10,16 @@ class App extends React.Component {
     super();
     this.state = {
       educationList: [],
-      visible: false,
+      educationVisible: false,
+      workExpVisible: false,
       workExperienceList: [],
     };
     this.updateEduValue = this.updateEduValue.bind(this);
     this.deleteEdu = this.deleteEdu.bind(this);
     this.addEdu = this.addEdu.bind(this);
+    this.addWorkExp = this.addWorkExp.bind(this);
+    this.updateWorkExpValue = this.updateWorkExpValue.bind(this);
+    this.deleteWorkExp = this.deleteWorkExp.bind(this);
   }
 
 
@@ -44,14 +48,48 @@ class App extends React.Component {
     });
   }
 
+  deleteWorkExp(e){
+    const newArr = this.state.workExperienceList;
+    const index = Array.from(
+      e.target.parentElement.parentElement.parentElement.parentElement.children
+    ).indexOf(e.target.parentElement.parentElement.parentElement);
+    newArr.splice(index, 1);
+    this.setState({
+      ...this.state,
+      workExperienceList: newArr,
+    });
+  }
+
   addEdu(){
     const newEdu = {institution:"",major:"",years:""}
     this.setState({
       ...this.state,
       educationList: this.state.educationList.concat(newEdu)
     })
-
   }
+
+  addWorkExp(){
+    const newWorkExp = {companyName:"",position:"",responsibilities:"",dateFrom:"",dateTo:""}
+    this.setState({
+      ...this.state,
+      workExperienceList: this.state.workExperienceList.concat(newWorkExp)
+    })
+  }
+
+
+  updateWorkExpValue(e) {
+    const newArr = this.state.workExperienceList;
+    const index = Array.from(
+      e.target.parentElement.parentElement.parentElement.parentElement.children
+    ).indexOf(e.target.parentElement.parentElement.parentElement);
+    const tarName = e.target.name;
+    newArr[index][tarName] = e.target.value;
+    this.setState({
+      ...this.state,
+      workExperienceList: newArr,
+    });
+  }
+
 
   render() {
     return (
@@ -63,9 +101,9 @@ class App extends React.Component {
         <div className="main">
           <div
             className="education"
-            onMouseEnter={() => this.setState({ ...this.state, visible: true })}
+            onMouseEnter={() => this.setState({ ...this.state, educationVisible: true })}
             onMouseLeave={() =>
-              this.setState({ ...this.state, visible: false })
+              this.setState({ ...this.state, educationVisible: false })
             }
           >
             Education
@@ -77,17 +115,49 @@ class App extends React.Component {
                   years={educationObject.years}
                   change={this.updateEduValue}
                 />
-                {this.state.visible ? (
+                {this.state.educationVisible ? (
                   <button
                     onClick={(e) => this.deleteEdu(e)}
-                    className="deleteButton"
+                    className="deleteEduButton"
                   >
                     X
                   </button>
                 ) : null}
               </div>
             ))}
-            {this.state.visible?<button onClick={this.addEdu} >Add</button>:null}
+            {this.state.educationVisible?<button onClick={this.addEdu} >Add</button>:null}
+          </div>
+          <div
+            className="workExp"
+            onMouseEnter={() => this.setState({ ...this.state, workExpVisible: true })}
+            onMouseLeave={() =>
+              this.setState({ ...this.state, workExpVisible: false })
+            }
+          >
+            Work Experience
+            {this.state.workExperienceList.map((wEObject) => (
+              <div className="workExperienceContainer">
+              {this.state.workExpVisible ? (
+                  <button
+                    onClick={(e) => this.deleteWorkExp(e)}
+                    className="deleteWorkButton"
+                  >
+                    X
+                  </button>
+                ) : null}
+                <WorkExperience
+                companyName={wEObject.companyName}
+                position = {wEObject.position}
+                responsibilities = {wEObject.responsibilities}
+                dateFrom = {wEObject.dateFrom}
+                dateTo = {wEObject.dateTo}
+                change = {this.updateWorkExpValue}
+                />
+         
+
+              </div>
+            ))}
+            {this.state.workExpVisible?<button onClick={this.addWorkExp} >Add</button>:null}
           </div>
         </div>
       </div>
