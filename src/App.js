@@ -9,16 +9,13 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      educationList: [
-        { institution: "Harvard", major: "CS", years: "2012-2016" },
-        { institution: "Harvard1", major: "CS", years: "2012-2016" },
-        { institution: "Harvard2", major: "CS", years: "2012-2016" },
-      ],
+      educationList: [],
       visible: false,
       workExperienceList: [],
     };
     this.updateEduValue = this.updateEduValue.bind(this);
     this.deleteEdu = this.deleteEdu.bind(this);
+    this.addEdu = this.addEdu.bind(this);
   }
 
 
@@ -48,6 +45,11 @@ class App extends React.Component {
   }
 
   addEdu(){
+    const newEdu = {institution:"",major:"",years:""}
+    this.setState({
+      ...this.state,
+      educationList: this.state.educationList.concat(newEdu)
+    })
 
   }
 
@@ -85,7 +87,7 @@ class App extends React.Component {
                 ) : null}
               </div>
             ))}
-            {this.state.visible?<button>Add</button>:null}
+            {this.state.visible?<button onClick={this.addEdu} >Add</button>:null}
           </div>
         </div>
       </div>
