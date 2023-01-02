@@ -35,7 +35,6 @@ class WorkExperience extends React.Component {
             <input
               name="companyName"
               onClick={this.makeEditable}
-              defaultValue={this.state.companyName}
               onChange={this.updateInfo}
               placeholder="e.g. Microsoft"
             />
@@ -45,7 +44,6 @@ class WorkExperience extends React.Component {
             <input
               name="position"
               onClick={this.makeEditable}
-              defaultValue={this.state.position}
               onChange={this.updateInfo}
               placeholder="e.g. Account Manager"
             />
@@ -55,7 +53,6 @@ class WorkExperience extends React.Component {
             <input
               name="responsibilities"
               onClick={this.makeEditable}
-              defaultValue={this.state.responsibilities}
               onChange={this.updateInfo}
               placeholder="e.g. Managing the key accounts; Preparing sales reports"
             />
@@ -65,7 +62,6 @@ class WorkExperience extends React.Component {
             <input
               name="dateFrom"
               onClick={this.makeEditable}
-              defaultValue={this.state.dateFrom}
               onChange={this.updateInfo}
               placeholder="e.g. 10-12-2022"
             />{" "}
@@ -73,7 +69,6 @@ class WorkExperience extends React.Component {
             <input
               name="dateTo"
               onClick={this.makeEditable}
-              defaultValue={this.state.dateTo}
               onChange={this.updateInfo}
               placeholder="e.g. 06-08-2024"
             />
