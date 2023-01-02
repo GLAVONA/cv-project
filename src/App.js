@@ -16,7 +16,7 @@ class App extends React.Component {
     this.addNewEducation = this.addNewEducation.bind(this);
     this.addNewWorkExp = this.addNewWorkExp.bind(this);
     this.removeThisEducation = this.removeThisEducation.bind(this);
-    // this.removeThisWorkExp = this.removeThisWorkExp.bind(this);
+    this.removeThisWorkExp = this.removeThisWorkExp.bind(this);
   }
 
   removeThisEducation(e) {
@@ -26,14 +26,12 @@ class App extends React.Component {
     })
   }
 
-//   removeThisWorkExp(e) {
-//     this.setState({
-//       ...this.state,
-//       workExperienceList: this.state.workExperienceList.filter(
-//         (_, i) => i !== e
-//       ),
-//     });
-//   }
+  removeThisWorkExp(e) {
+    this.setState({
+        ...this.state,
+        workExperienceList: this.state.workExperienceList.filter((_,i)=>i!==e),
+    })
+  }
 
   addNewEducation() {
     this.setState({
@@ -63,18 +61,14 @@ class App extends React.Component {
           {this.state.educationList.map((edu, index) => (
             <div className="education">
               {edu}
-              {
-                <button onClick={() => this.removeThisEducation(index)}>
-                  X
-                </button>
-              }
-              {this.state.testList}
             </div>
           ))}
           <button onClick={this.addNewEducation}>Add</button>
+          <button onClick={() => this.removeThisEducation(this.state.educationList.length-1)}>Delete Last</button>
           <div className="workexp-header header">WORK EXPERIENCE</div>
           {this.state.workExperienceList}
           <button onClick={this.addNewWorkExp}>Add</button>
+          <button onClick={() => this.removeThisWorkExp(this.state.workExperienceList.length-1)}>Delete Last</button>
         </div>
       </div>
     );
