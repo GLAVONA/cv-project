@@ -106,7 +106,8 @@ input[name="years"] {
 
 .education{
     display: flex;
-    gap: 0.1rem;
+    flex-direction: column;
+    gap: 0.3rem;
     align-items: center;
     justify-content: center;
 }

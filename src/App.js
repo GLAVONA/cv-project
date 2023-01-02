@@ -11,15 +11,28 @@ class App extends React.Component {
     this.state = {
       educationList: [
         { institution: "Harvard", major: "CS", years: "2012-2016" },
-        { institution: "Harvard", major: "CS", years: "2012-2016" },
-        { institution: "Harvard", major: "CS", years: "2012-2016" },
+        { institution: "Harvard1", major: "CS", years: "2012-2016" },
+        { institution: "Harvard2", major: "CS", years: "2012-2016" },
       ],
       workExperienceList: [],
     };
+    this.check = this.check.bind(this);
+    this.updateEduValue = this.updateEduValue.bind(this);
   }
 
   check() {
-    console.log("ayaya");
+    console.log(this.state.educationList);
+  }
+
+  updateEduValue(e){
+    const newArr = this.state.educationList;
+    const index = Array.from(e.target.parentElement.parentElement.children).indexOf(e.target.parentElement)
+    const tarName = e.target.name;
+    newArr[index][tarName] = e.target.value;
+    this.setState({
+      ...this.state,
+      educationList: newArr,
+    })
   }
 
   render() {
@@ -30,15 +43,17 @@ class App extends React.Component {
           <Photo />
           <GeneralInfo />
         </div>
-        <div className="main">
-          <div className="education">EDUCATION</div>
-          {this.state.educationList.map((educationObject, index) => {
+        <div className="main header">
+        <div className="education">
+          {this.state.educationList.map((educationObject, index) => (
             <Education
               institution={educationObject.institution}
               major={educationObject.major}
               years={educationObject.years}
-            />;
-          })}
+              change={this.updateEduValue}
+            />
+          ))}
+          </div>
         </div>
       </div>
     );
