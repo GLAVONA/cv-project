@@ -10,20 +10,17 @@ class App extends React.Component {
     super();
     this.state = {
       educationList: [
-        { institution: "Harvard", major: "CS", years: "2012-2016", visible:false},
-        { institution: "Harvard1", major: "CS", years: "2012-2016",visible:false},
-        { institution: "Harvard2", major: "CS", years: "2012-2016",visible:false },
+        { institution: "Harvard", major: "CS", years: "2012-2016" },
+        { institution: "Harvard1", major: "CS", years: "2012-2016" },
+        { institution: "Harvard2", major: "CS", years: "2012-2016" },
       ],
+      visible: false,
       workExperienceList: [],
     };
-    this.check = this.check.bind(this);
     this.updateEduValue = this.updateEduValue.bind(this);
     this.deleteEdu = this.deleteEdu.bind(this);
   }
 
-  check() {
-    console.log(this.state.educationList);
-  }
 
   updateEduValue(e) {
     const newArr = this.state.educationList;
@@ -49,37 +46,46 @@ class App extends React.Component {
       educationList: newArr,
     });
   }
-  
+
+  addEdu(){
+
+  }
 
   render() {
     return (
       <div className="app">
         <div className="header">
-          <button onClick={this.check}>Check</button>
           <Photo />
           <GeneralInfo />
         </div>
-        <div className="main header">
-          <div className="education">
+        <div className="main">
+          <div
+            className="education"
+            onMouseEnter={() => this.setState({ ...this.state, visible: true })}
+            onMouseLeave={() =>
+              this.setState({ ...this.state, visible: false })
+            }
+          >
             Education
             {this.state.educationList.map((educationObject) => (
-              <div className="educationContainer" >
+              <div className="educationContainer">
                 <Education
                   institution={educationObject.institution}
                   major={educationObject.major}
                   years={educationObject.years}
                   change={this.updateEduValue}
                 />
-                {
+                {this.state.visible ? (
                   <button
                     onClick={(e) => this.deleteEdu(e)}
                     className="deleteButton"
                   >
                     X
                   </button>
-                }
+                ) : null}
               </div>
             ))}
+            {this.state.visible?<button>Add</button>:null}
           </div>
         </div>
       </div>

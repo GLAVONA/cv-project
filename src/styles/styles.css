@@ -3,10 +3,15 @@ body {
   padding: 0;
 }
 
+
+html,body,#root{
+    height: 100%;
+    margin: 0;
+}
+
 #root {
   width: 50rem;
   margin: 0 auto;
-  height: 100%;
 }
 
 .app {
@@ -15,14 +20,16 @@ body {
   background-color: antiquewhite;
   box-shadow: 3px 3px 5px gray;
   justify-content: center;
-  padding-top: 1rem;
   width: 50rem;
+  height: 100%;
+  gap: 1rem;
 }
 
 .app > .header {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding-top: 1rem;
 }
 
 .generalInfo {
@@ -45,6 +52,7 @@ body {
   flex-direction: column;
   gap: 0.5rem;
   width: 50rem;
+  height: 100%;
 }
 
 .main > .header {
@@ -55,8 +63,6 @@ body {
   gap: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
-  padding-bottom: .5rem;
-  padding-top: .5rem;
   border-top: 1px solid black;
 }
 
@@ -70,6 +76,7 @@ body {
 
 .educationContainer {
   display: flex;
+  position: relative;
   gap: 0.3rem;
   align-items: center;
   justify-content: center;
@@ -77,6 +84,21 @@ body {
 
 input[name="years"] {
   flex: 0 1 auto;
+}
+
+.education {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  align-items: center;
+  border-top: 1px solid black;
+  width: 100%;
+  flex: 1;
+}
+
+.deleteButton {
+  position: absolute;
+  right: -1.7rem;
 }
 
 .workExperienceContainer {
@@ -102,12 +124,4 @@ input[name="years"] {
 
 .responsibilities > input {
   flex: 1;
-}
-
-.education{
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    align-items: center;
-    justify-content: center;
 }
