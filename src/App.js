@@ -15,20 +15,40 @@ class App extends React.Component {
 
     this.addNewEducation = this.addNewEducation.bind(this);
     this.addNewWorkExp = this.addNewWorkExp.bind(this);
-
+    this.removeThisEducation = this.removeThisEducation.bind(this);
+    // this.removeThisWorkExp = this.removeThisWorkExp.bind(this);
   }
 
-  addNewEducation() {
+  removeThisEducation(e) {
     this.setState({
         ...this.state,
+        educationList: this.state.educationList.filter((_,i)=>i!==e),
+    })
+  }
+
+//   removeThisWorkExp(e) {
+//     this.setState({
+//       ...this.state,
+//       workExperienceList: this.state.workExperienceList.filter(
+//         (_, i) => i !== e
+//       ),
+//     });
+//   }
+
+  addNewEducation() {
+    console.log(this.state.educationList)
+    this.setState({
+      ...this.state,
       educationList: this.state.educationList.concat(<Education />),
     });
   }
 
   addNewWorkExp() {
     this.setState({
-        ...this.state,
-      workExperienceList: this.state.workExperienceList.concat(<WorkExperience />),
+      ...this.state,
+      workExperienceList: this.state.workExperienceList.concat(
+        <WorkExperience />
+      ),
     });
   }
 
@@ -41,11 +61,19 @@ class App extends React.Component {
         </div>
         <div className="main">
           <div className="education-header header">EDUCATION</div>
-          <Education />
-          {this.state.educationList}
+          {this.state.educationList.map((edu, index) => (
+            <div className="education">
+              {edu}
+              {
+                <button onClick={() => this.removeThisEducation(index)}>
+                  X
+                </button>
+              }
+              {this.state.testList}
+            </div>
+          ))}
           <button onClick={this.addNewEducation}>Add</button>
           <div className="workexp-header header">WORK EXPERIENCE</div>
-          <WorkExperience />
           {this.state.workExperienceList}
           <button onClick={this.addNewWorkExp}>Add</button>
         </div>

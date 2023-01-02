@@ -16,6 +16,7 @@ body {
   box-shadow: 3px 3px 5px gray;
   justify-content: center;
   padding-top: 1rem;
+  width: 50rem;
 }
 
 .app > .header {
@@ -43,6 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 50rem;
 }
 
 .main > .header {
@@ -100,4 +102,11 @@ input[name="years"] {
 
 .responsibilities > input {
   flex: 1;
+}
+
+.education{
+    display: flex;
+    gap: 0.1rem;
+    align-items: center;
+    justify-content: center;
 }
