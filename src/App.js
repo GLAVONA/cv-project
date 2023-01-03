@@ -1,5 +1,5 @@
 import "./styles/styles.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GeneralInfo from "./components/GeneralInfo";
 import Education from "./components/Education";
 import Photo from "./components/Photo";
@@ -7,53 +7,45 @@ import WorkExperience from "./components/WorkExperience";
 
 function App() {
   const [appState, setAppState] = useState({
-    educationList: [],
     educationVisible: false,
     workExpVisible: false,
-    workExperienceList: [],
   });
 
+  const [educationList, setEducationList] = useState([]);
+  const [workExperienceList, setWorkExperienceList] = useState([]);
+
   const updateEduValue = (e) => {
-    const newArr = appState.educationList;
+    const newArr = educationList;
     const index = Array.from(
       e.target.parentElement.parentElement.parentElement.children
     ).indexOf(e.target.parentElement.parentElement);
     const tarName = e.target.name;
     newArr[index][tarName] = e.target.value;
-    setAppState({
-      ...appState,
-      educationList: newArr,
-    });
+    setEducationList([...newArr]);
   };
 
   const deleteEdu = (e) => {
-    const newArr = appState.educationList;
+    const newArr = educationList;
     const index = Array.from(
       e.target.parentElement.parentElement.children
     ).indexOf(e.target.parentElement);
     newArr.splice(index, 1);
-    setAppState({
-      educationList: newArr,
-    });
+    setEducationList([...newArr]);
   };
 
   const deleteWorkExp = (e) => {
-    const newArr = appState.workExperienceList;
+    const newArr = workExperienceList;
     const index = Array.from(
       e.target.parentElement.parentElement.parentElement.parentElement.children
     ).indexOf(e.target.parentElement.parentElement.parentElement);
     newArr.splice(index, 1);
-    setAppState({
-      workExperienceList: newArr,
-    });
+    setWorkExperienceList([...workExperienceList]);
   };
 
   const addEdu = () => {
     const newEdu = { institution: "", major: "", years: "" };
-    setAppState({
-      ...appState,
-      educationList: appState.educationList.concat(newEdu),
-    });
+    const joined = educationList.concat(newEdu);
+    setEducationList(joined);
   };
 
   const addWorkExp = () => {
@@ -64,23 +56,18 @@ function App() {
       dateFrom: "",
       dateTo: "",
     };
-    setAppState({
-      ...appState,
-      workExperienceList: appState.workExperienceList.concat(newWorkExp),
-    });
+    const joined = workExperienceList.concat(newWorkExp);
+    setWorkExperienceList(joined);
   };
 
   const updateWorkExpValue = (e) => {
-    const newArr = appState.workExperienceList;
+    const newArr = workExperienceList;
     const index = Array.from(
       e.target.parentElement.parentElement.parentElement.parentElement.children
     ).indexOf(e.target.parentElement.parentElement.parentElement);
     const tarName = e.target.name;
     newArr[index][tarName] = e.target.value;
-    setAppState({
-      ...appState,
-      workExperienceList: newArr,
-    });
+    setWorkExperienceList([...newArr])
   };
 
   return (
@@ -93,14 +80,14 @@ function App() {
         <div
           className="education"
           onMouseEnter={() =>
-            setAppState({ ...appState, educationVisible: true })
+            setAppState({educationVisible: true })
           }
           onMouseLeave={() =>
-            setAppState({ ...appState, educationVisible: false })
+            setAppState({educationVisible: false })
           }
         >
           Education
-          {appState.educationList.map((educationObject) => (
+          {educationList.map((educationObject) => (
             <div className="educationContainer">
               <Education
                 institution={educationObject.institution}
@@ -127,14 +114,14 @@ function App() {
         <div
           className="workExp"
           onMouseEnter={() =>
-            setAppState({ ...appState, workExpVisible: true })
+            setAppState({workExpVisible: true })
           }
           onMouseLeave={() =>
-            setAppState({ ...appState, workExpVisible: false })
+            setAppState({workExpVisible: false })
           }
         >
           Work Experience
-          {appState.workExperienceList.map((wEObject) => (
+          {workExperienceList.map((wEObject) => (
             <div className="workExperienceContainer">
               {appState.workExpVisible ? (
                 <button
