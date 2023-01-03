@@ -13,6 +13,8 @@ function App() {
 
   const [educationList, setEducationList] = useState([]);
   const [workExperienceList, setWorkExperienceList] = useState([]);
+  const [photoURL, setPhotoURL] = useState("https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");
+  const [photoProvided, setPhotoProvided] = useState(false);
 
   const updateEduValue = (e) => {
     const newArr = educationList;
@@ -67,24 +69,37 @@ function App() {
     ).indexOf(e.target.parentElement.parentElement.parentElement);
     const tarName = e.target.name;
     newArr[index][tarName] = e.target.value;
-    setWorkExperienceList([...newArr])
+    setWorkExperienceList([...newArr]);
+  };
+
+  const showURLInput = (e)=>{
+    setPhotoProvided(!e);
+  }
+
+  const changePhoto = () => {
+    const photoURLInput = document.getElementById("photoURL").value;
+    setPhotoURL(photoURLInput);
+    setPhotoProvided(true);        
   };
 
   return (
     <div className="app">
-      <div className="header">
-        <Photo />
+      <div className="header"onMouseLeave={()=>showURLInput(false)}>
+        <div className="photo">
+          <Photo src={photoURL} mouseover={()=>showURLInput(true)}/>
+          {!photoProvided?
+            (<><input type="text" placeholder="Photo URL:" id="photoURL"/>
+            <button onClick={changePhoto}>Submit</button></>)
+            :null
+          }
+        </div>
         <GeneralInfo />
       </div>
       <div className="main">
         <div
           className="education"
-          onMouseEnter={() =>
-            setAppState({educationVisible: true })
-          }
-          onMouseLeave={() =>
-            setAppState({educationVisible: false })
-          }
+          onMouseEnter={() => setAppState({ educationVisible: true })}
+          onMouseLeave={() => setAppState({ educationVisible: false })}
         >
           Education
           {educationList.map((educationObject) => (
@@ -113,12 +128,8 @@ function App() {
         </div>
         <div
           className="workExp"
-          onMouseEnter={() =>
-            setAppState({workExpVisible: true })
-          }
-          onMouseLeave={() =>
-            setAppState({workExpVisible: false })
-          }
+          onMouseEnter={() => setAppState({ workExpVisible: true })}
+          onMouseLeave={() => setAppState({ workExpVisible: false })}
         >
           Work Experience
           {workExperienceList.map((wEObject) => (
