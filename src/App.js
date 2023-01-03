@@ -118,9 +118,11 @@ function App() {
               ) : null}
             </div>
           ))}
-          {appState.educationVisible ? (
-            <button onClick={addEdu}>Add</button>
-          ) : null}
+          <div className="addEduDiv">
+            {appState.educationVisible ? (
+              <button onClick={addEdu}>Add</button>
+            ) : null}
+          </div>
         </div>
         <div
           className="workExp"

@@ -95,7 +95,7 @@ input[name="years"] {
   border-top: 1px solid black;
   width: 100%;
   padding-top: 0.3rem;
-  min-height: 50px;
+  flex-basis: 50px;
 }
 
 .deleteEduButton {
@@ -141,7 +141,6 @@ input[name="years"] {
   align-items: center;
   border-top: 1px solid black;
   flex: 1;
-  margin-top: 2rem;
 }
 
 .workExperienceContainer{
@@ -149,3 +148,6 @@ input[name="years"] {
     margin-top: 1rem;
 }
 
+.addEduDiv{
+  min-height: 30px;
+}
