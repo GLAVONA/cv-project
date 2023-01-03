@@ -1,22 +1,17 @@
 import React from "react";
 
-class WorkExperience extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+function WorkExperience (props) {
 
-  render() {
     return (
-      <form className="workExperienceForm" onSubmit={this.onSubmitForm}>
+      <form className="workExperienceForm">
         <div className="workExperienceInput">
           <label htmlFor="companyName">Company Name: </label>
           <input
             name="companyName"
             placeholder="e.g. Microsoft"
-            value={this.props.companyName}
+            value={props.companyName}
             onClick={(e) => e.target.select()}
-            onChange={this.props.change}
+            onChange={props.change}
           />
         </div>
         <div className="workExperienceInput">
@@ -24,9 +19,9 @@ class WorkExperience extends React.Component {
           <input
             name="position"
             placeholder="e.g. Account Manager"
-            value={this.props.position}
+            value={props.position}
             onClick={(e) => e.target.select()}
-            onChange={this.props.change}
+            onChange={props.change}
           />
         </div>
         <div className="workExperienceInput responsibilities">
@@ -34,9 +29,9 @@ class WorkExperience extends React.Component {
           <input
             name="responsibilities"
             placeholder="e.g. Managing the key accounts; Preparing sales reports"
-            value={this.props.responsibilities}
+            value={props.responsibilities}
             onClick={(e) => e.target.select()}
-            onChange={this.props.change}
+            onChange={props.change}
           />
         </div>
           <div className="workExperienceInput">
@@ -44,9 +39,9 @@ class WorkExperience extends React.Component {
               <input
                 name="dateFrom"
                 placeholder="e.g. 10-12-2022"
-                value={this.props.dateFrom}
+                value={props.dateFrom}
                 onClick={(e) => e.target.select()}
-                onChange={this.props.change}
+                onChange={props.change}
               />
           </div>
           <div className="workExperienceInput">
@@ -54,14 +49,13 @@ class WorkExperience extends React.Component {
               <input
                 name="dateTo"
                 placeholder="e.g. 06-08-2024"
-                value={this.props.dateTo}
+                value={props.dateTo}
                 onClick={(e) => e.target.select()}
-                onChange={this.props.change}
+                onChange={props.change}
               />
           </div>
       </form>
     );
   }
-}
 
 export default WorkExperience;
